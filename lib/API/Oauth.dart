@@ -103,7 +103,7 @@ abstract class Auth {
     if (kIsWeb == true) {
       redirectUrl = redirectUrlWeb;
     } else {
-      redirectUrl = redirectUrlMobile;
+      redirectUrl = redirectUrlMobile + '_' + clientID;
     }
 
     var params = '?' +
