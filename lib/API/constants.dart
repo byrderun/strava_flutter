@@ -11,6 +11,7 @@ final authorizationEndpoint = "https://www.strava.com/oauth/authorize";
 // final String redirectUrlWeb = "https://tombolo.fr";
 final String redirectUrlWeb = "https://BirdyF.github.io";
 
-final String redirectUrlMobile =
+final String redirectUrlMobilePrefix =
     // "strava://redirect/"; // To use with iOS or Android
-    "stravaflutter://redirect/"; // To use with iOS or Android
+    "stravaflutter"; // To use with iOS or Android
+final String redirectUrlMobileSuffix = "://redirect/";
