@@ -104,7 +104,7 @@ abstract class Auth {
       redirectUrl = redirectUrlWeb;
     } else {
       redirectUrl =
-          redirectUrlMobilePrefix + '_' + clientID + redirectUrlMobileSuffix;
+          redirectUrlMobilePrefix + clientID + redirectUrlMobileSuffix;
     }
 
     var params = '?' +
