@@ -101,7 +101,7 @@ abstract class Auth {
     String redirectUrl;
 
     if (kIsWeb == true) {
-      redirectUrl = redirectUrlWeb;
+      redirectUrl = redirectUrlWeb + '_' + clientID;
     } else {
       redirectUrl = redirectUrlMobile + '_' + clientID;
     }
