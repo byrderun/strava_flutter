@@ -320,8 +320,6 @@ class DetailedActivity {
   }
 }
 
-
-
 class Carte {
   String id;
   String polyline;
@@ -346,7 +344,6 @@ class Carte {
     return data;
   }
 }
-
 
 /**** 
 class SegmentEfforts {
@@ -678,8 +675,9 @@ class Laps {
     activity = json['activity'] != null
         ? new Activity.fromJson(json['activity'])
         : null;
-    athlete =
-        json['athlete'] != null ? AthleteEffort.fromJson(json['athlete']) : null;
+    athlete = json['athlete'] != null
+        ? AthleteEffort.fromJson(json['athlete'])
+        : null;
     elapsedTime = json['elapsed_time'];
     movingTime = json['moving_time'];
     startDate = json['start_date'];
@@ -861,8 +859,9 @@ class SummaryActivity {
   SummaryActivity.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     resourceState = json['resource_state'];
-    athlete =
-        json['athlete'] != null ? AthleteEffort.fromJson(json['athlete']) : null;
+    athlete = json['athlete'] != null
+        ? AthleteEffort.fromJson(json['athlete'])
+        : null;
     name = json['name'];
     distance = json['distance'];
     movingTime = json['moving_time'];
@@ -897,8 +896,18 @@ class SummaryActivity {
     data['total_elevation_gain'] = this.totalElevationGain;
     data['type'] = this.type;
     data['workout_type'] = this.workoutType;
+    data['start_date'] = _dateToStravaString(this.startDate);
     return data;
   }
+}
+
+String _dateToStravaString(DateTime dateTime) {
+  DateFormat dateFormat = DateFormat("yyyy-MM-dd");
+  DateFormat timeFormat = DateFormat.Hms();
+  String date = dateFormat.format(dateTime);
+  String time = timeFormat.format(dateTime);
+  String parsedValue = date + 'T' + time + 'Z';
+  return parsedValue;
 }
 
 DateTime _parseDate(String dateTimeToParse) {
