@@ -62,7 +62,8 @@ class DetailedActivity {
   String description;
   double calories;
   List<SegmentEffort> segmentEfforts;
-  List<SplitsMetric> splitsMetric;
+  List<Split> splitsMetric;
+  List<Split> splitsImperial;
   List<Laps> laps;
   Gear gear;
   String partnerBrandTag;
@@ -128,6 +129,7 @@ class DetailedActivity {
       this.calories,
       this.segmentEfforts,
       this.splitsMetric,
+      this.splitsImperial,
       this.laps,
       this.gear,
       this.partnerBrandTag,
@@ -207,9 +209,15 @@ class DetailedActivity {
       });
     }
     if (json['splits_metric'] != null) {
-      splitsMetric = new List<SplitsMetric>();
+      splitsMetric = new List<Split>();
       json['splits_metric'].forEach((v) {
-        splitsMetric.add(new SplitsMetric.fromJson(v));
+        splitsMetric.add(new Split.fromJson(v));
+      });
+    }
+    if (json['splits_standard'] != null) {
+      splitsImperial = new List<Split>();
+      json['splits_standard'].forEach((v) {
+        splitsImperial.add(new Split.fromJson(v));
       });
     }
     if (json['laps'] != null) {
@@ -297,6 +305,10 @@ class DetailedActivity {
     }
     if (this.splitsMetric != null) {
       data['splits_metric'] = this.splitsMetric.map((v) => v.toJson()).toList();
+    }
+    if (this.splitsImperial != null) {
+      data['splits_standard'] =
+          this.splitsImperial.map((v) => v.toJson()).toList();
     }
     if (this.laps != null) {
       data['laps'] = this.laps.map((v) => v.toJson()).toList();
@@ -583,7 +595,7 @@ class Segment {
   }
 }
 
-class SplitsMetric {
+class Split {
   double distance;
   int elapsedTime;
   double elevationDifference;
@@ -592,7 +604,7 @@ class SplitsMetric {
   double averageSpeed;
   int paceZone;
 
-  SplitsMetric(
+  Split(
       {this.distance,
       this.elapsedTime,
       this.elevationDifference,
@@ -601,7 +613,7 @@ class SplitsMetric {
       this.averageSpeed,
       this.paceZone});
 
-  SplitsMetric.fromJson(Map<String, dynamic> json) {
+  Split.fromJson(Map<String, dynamic> json) {
     distance = json['distance'];
     elapsedTime = json['elapsed_time'];
     elevationDifference = json['elevation_difference'];
