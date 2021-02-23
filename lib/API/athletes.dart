@@ -203,13 +203,13 @@ abstract class Athletes {
           var jsonResponse = json.decode(rep.body);
 
           if (jsonResponse != null) {
-            jsonResponse.forEach((summ) {
+            for (var summ in jsonResponse) {
               var activity = SummaryActivity.fromJson(summ);
               globals.displayInfo(
                   '${activity.name} ,  ${activity.distance},  ${activity.id}');
               _listSummary.add(activity);
               _nbActvity++;
-            });
+            }
 
             // Check if it is the last page
             globals.displayInfo(_nbActvity.toString());
