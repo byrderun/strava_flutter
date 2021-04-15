@@ -18,7 +18,7 @@ dependencies:
   uni_links: ^0.4.0
 
   #intl: ^0.15.8
-  intl: ^0.16.0
+  intl: ^0.17.0
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
