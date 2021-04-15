@@ -7,16 +7,16 @@ class DetailedSegmentEffort {
   int resourceState;
   String name;
   ActivityEffort activity;
-  Athlete athlete; 
-  int elapsedTime; 
-  String startDate; 
-  String startDateLocal; 
-  double distance; 
-  int movingTime; 
-  int startIndex; 
+  Athlete athlete;
+  int elapsedTime;
+  String startDate;
+  String startDateLocal;
+  double distance;
+  int movingTime;
+  int startIndex;
   int endIndex;
   bool deviceWatts;
-  double averageWatts; 
+  double averageWatts;
   SegmentEffort segment;
 
   int komRank;
@@ -219,8 +219,6 @@ class ActivityEffort {
   }
 }
 
-
-
 class AthleteEffort {
   int id;
   int resourceState;
@@ -243,6 +241,3 @@ class AthleteEffort {
     return data;
   }
 }
-
-
-
