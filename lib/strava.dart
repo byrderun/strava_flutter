@@ -22,16 +22,7 @@ import 'API/segmentEfforts.dart';
 /// redirectURL: url that will be called after Strava authorize your app
 /// prompt: to choose to ask Strava always to authenticate or only when needed (with 'auto')
 /// scope: Strava scope check https://developers.strava.com/docs/oauth-updates/
-class Strava
-    with
-        Upload,
-        Activities,
-        Auth,
-        Clubs,
-        Segments,
-        SegmentEfforts,
-        Athletes,
-        Races {
+class Strava with Upload, Activities, Auth, Clubs, Segments, SegmentEfforts, Athletes, Races {
   String secret;
 
   /// Initialize the Strava class
@@ -55,7 +46,7 @@ class Strava
     var _header = globals.createHeader();
 
     if (_header.containsKey('88') == false) {
-      final reqGear = Uri.parse('https://www.strava.com/api/v3/gear/' + id);
+      final reqGear = 'https://www.strava.com/api/v3/gear/' + id;
       var rep = await http.get(reqGear, headers: _header);
 
       if (rep.statusCode == 200) {
